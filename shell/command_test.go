@@ -300,6 +300,7 @@ func TestRunShellWorkingDir(t *testing.T) {
 	cmd.Dir = temp
 	_, _, err := cmd.Run()
 	if err != nil {
+		t.Log(err)
 		t.Fatal(err)
 	}
 
