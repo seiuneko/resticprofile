@@ -289,7 +289,7 @@ func TestSelectCustomShell(t *testing.T) {
 func TestRunShellWorkingDir(t *testing.T) {
 	command := func() string {
 		if platform.IsWindows() {
-			return "(pwd).Path"
+			return "@echo %CD%"
 		}
 		return "pwd"
 	}()
@@ -300,7 +300,6 @@ func TestRunShellWorkingDir(t *testing.T) {
 	cmd.Dir = temp
 	_, _, err := cmd.Run()
 	if err != nil {
-		t.Log(err)
 		t.Fatal(err)
 	}
 
